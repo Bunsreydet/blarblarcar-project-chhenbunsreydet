@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +32,9 @@ class _RidePrefFormState extends State<RidePrefForm> {
   Location? arrival;
   late int requestedSeats;
 
+  //declare validation for handle all event
+  get isValid => null;
+
   // ----------------------------------
   // Initialize the Form attributes
   // ----------------------------------
@@ -43,19 +48,46 @@ class _RidePrefFormState extends State<RidePrefForm> {
     // It is used to initialize state variables, set up animations, controllers,
     // Listeners before the widget is built and rendered. It run immediately after
     // the State object is created and must include super.initState()
+    // departure = widget.initRidePref?.departure;
+    // departureDate = widget.initRidePref?.departureDate ?? DateTime.now();
+    // arrival = widget.initRidePref?.departure;
+    // requestedSeats = widget.initRidePref?.requestedSeats ?? 1;
+
     if (widget.initRidePref != null) {
       departure = widget.initRidePref!.departure;
       departureDate = widget.initRidePref!.departureDate;
       arrival = widget.initRidePref!.arrival;
       requestedSeats = widget.initRidePref!.requestedSeats;
+    } 
+    //update else
+    else {
+      departure = null;
+      departureDate = DateTime.now();
+      arrival = null;
+      requestedSeats = 1;
     }
   }
 
   // ----------------------------------
   // Handle events
   // ----------------------------------
-  
-  void _hand
+
+  // This void is my mistake
+  // void _handleSearch() {
+  //   if (isValid != null) {
+  //     return;
+  //   }
+
+  //   final prefride = RidePref(
+  //     departure = widget.,
+  //     departureDate: departureDate,
+  //     arrival: arrival,
+  //     requestedSeats: requestedSeats,
+  //   );
+  //   widget.onSearch?.call(prefride);
+  // }
+
+  //My correction from my teacher
 
   // ----------------------------------
   // Compute the widgets rendering
