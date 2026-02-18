@@ -22,7 +22,7 @@ class RidePrefScreen extends StatefulWidget {
 }
 
 class _RidePrefScreenState extends State<RidePrefScreen> {
-  const int transitionSpeed = 500; //declare static transition
+  int transitionSpeed = 500; //declare static transition
   Route createBottomToTopRoute<T>(Widget screen) {
     const begin = Offset(0.0, 1.0);
     const end = Offset(0.0, 0.0);
@@ -31,7 +31,7 @@ class _RidePrefScreenState extends State<RidePrefScreen> {
 
   Route _createAnimateRoute<T>(Widget screen, Offset begin, Offset end) {
     return PageRouteBuilder(
-      transitionDuration: const Duration(milliseconds: transitionSpeed),
+      transitionDuration: Duration(milliseconds: transitionSpeed),
       pageBuilder: (context, animation, secondaryAnimation) => screen,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var tween = Tween(
@@ -60,8 +60,6 @@ class _RidePrefScreenState extends State<RidePrefScreen> {
         // 1 - Background  Image
         _buildBackground(),
 
-        // 3 - To input the locations, date and seats and press on Search
-        //_buildinput(),
         // 2 - Foreground content
         _buildForeground(),
       ],
@@ -90,7 +88,6 @@ Widget _buildForeground() {
       ),
       SizedBox(height: 100),
       Container(
-        padding: EdgeInsets.fromLTRB(0, 200, 0, 100),
         margin: EdgeInsets.symmetric(horizontal: BlaSpacings.xxl),
         decoration: BoxDecoration(
           color: Colors.white, // White background
@@ -119,14 +116,6 @@ Widget _buildForeground() {
                 ),
               ),
             ),
-            // 2.3 Search button
-            // SizedBox(
-            //   height: 50,
-            //   child: Container(
-            //     width: 100,
-            //     child: b,
-            //   ),
-            // )
           ],
         ),
       ),

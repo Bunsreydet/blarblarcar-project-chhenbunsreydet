@@ -1,6 +1,7 @@
 import 'package:blarblarcar/theme/theme.dart';
 import 'package:flutter/material.dart';
 
+//variation of enum : primary and secondary
 enum BlaButtonType { primary, secondary }
 
 class BlaButton extends StatelessWidget {
@@ -13,9 +14,9 @@ class BlaButton extends StatelessWidget {
   });
 
   final String text;
-  final VoidCallback? onPressed;
+  final VoidCallback? onPressed; //variation from onPressed nullable: Enabled(onPressed != null) and Disabled(onPressed == null)
   final BlaButtonType type;
-  final IconData? icon;
+  final IconData? icon; //variation from icon being nullable: With icon and Without icon
 
   @override
   Widget build(BuildContext context) {

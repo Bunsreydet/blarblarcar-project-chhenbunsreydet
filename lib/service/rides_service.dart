@@ -9,7 +9,7 @@ class RidesService {
   //
   //  filter the rides starting from given departure location
   //
-  static List<Ride> _filterByDeparture(Location departure) {
+  static Future<List<Ride>> _filterByDeparture(Location departure) async {
     //return availableRides.where((ride) => ride.departureLocation == departureLocation).toList();
 
     List<Ride> result = [];
@@ -33,14 +33,14 @@ class RidesService {
   //  filter the rides   with several optional criteria (flexible filter options)
   //
   static List<Ride> filterBy({Location? departure, int? seatRequested}) {
-    List<Ride> results = availableRides;
-    if(departure != null){
-      results = _filterByDeparture(results, departure)
+    List<Ride> result = availableRides;
+    if (departure != null) {
+      result = _filterByDeparture(result, departure);
       //results = results.where((rides) => ride.departureLocation >= seatRequested)
     }
-    if(seatRequested != null){
-      results = _filterBySeatRequested(results, seatRequested);
+    if (seatRequested != null) {
+      result = _filterBySeatRequested(result, seatRequested);
     }
-    return results;
+    return result;
   }
 }
