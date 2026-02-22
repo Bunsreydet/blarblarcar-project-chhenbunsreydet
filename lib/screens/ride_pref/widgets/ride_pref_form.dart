@@ -1,6 +1,9 @@
+import 'package:blarblarcar/screens/ride_pref/widgets/ride_pref_input.dart';
 import 'package:blarblarcar/utils/animations_util.dart';
+import 'package:blarblarcar/utils/date_time_util.dart';
 import 'package:blarblarcar/widgets/actions/bla_button.dart';
 import 'package:blarblarcar/widgets/display/bla_divider.dart';
+import 'package:blarblarcar/widgets/inputs/bla_location_picker.dart';
 import 'package:flutter/material.dart';
 
 import '../../../model/ride/locations.dart';
@@ -61,22 +64,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
   // ----------------------------------
   // Handle events
   // ----------------------------------
-
-  // void _handleSelectDeparture() {}
-  // void _handleSelectArrival() {}
-  // void _handleSelectDate() {}
-  // void _handleSelectSeats() {}
-  // void _handleSwitchLocations() {}
-  // void _handleSearch() {
-  //   if (!isValid) return;
-  //   final ridePref = RidePref(
-  //     departure: departure!,
-  //     departureDate: departureDate!,
-  //     arrival: arrival!,
-  //     requestedSeats: requestedSeats,
-  //   );
-  //   widget.onSearch(ridePref);
-  // }
+  
 
   void onDeparturePressed() async {
     Location? selectedLocation = await Navigator.of(context).push<Location>(
@@ -99,7 +87,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
   void onSwappingLocationPressed() {
     setState(() {
       if (departure != null && arrival != null) {
-        Location temp = departureDate!;
+        DateTime temp = departureDate;
         departure = Location.copy(arrival!);
         arrival = Location.copy(temp);
       }
@@ -130,7 +118,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [ 
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: BlaSpacing.m),
+          padding: EdgeInsets.symmetric(horizontal: BlaSpacing.m),
           child: Column(
             children: [
               RidePrefInput(
@@ -167,3 +155,5 @@ class _RidePrefFormState extends State<RidePrefForm> {
       ]);
   }
 }
+
+

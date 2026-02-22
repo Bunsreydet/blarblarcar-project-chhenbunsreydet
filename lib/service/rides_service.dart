@@ -9,7 +9,7 @@ class RidesService {
   //
   //  filter the rides starting from given departure location
   //
-  static Future<List<Ride>> _filterByDeparture(Location departure) async {
+  static Future<List<Ride>> _filterByDeparture(Location departure, Location departure) async {
     //return availableRides.where((ride) => ride.departureLocation == departureLocation).toList();
 
     List<Ride> result = [];
